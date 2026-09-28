@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Starlen Angel</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Caveat:wght@500;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#fbeff0;--bg2:#efe6f7;--card:#fffaf1;--ink:#4a3038;--soft:#8a6a72;--rose:#e2607f;--edge:#8a5a3c;--paper:#f6e6c6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1c26;--bg2:#241d33;--card:#3a2a34;--ink:#fbe9ee;--soft:#d3aebb;--paper:#5a4438}}
+:root[data-theme="dark"]{--bg1:#2a1c26;--bg2:#241d33;--card:#3a2a34;--ink:#fbe9ee;--soft:#d3aebb;--paper:#5a4438}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:linear-gradient(160deg,var(--bg1),var(--bg2));background-color:var(--bg1);color:var(--ink);font-family:Quicksand,system-ui,sans-serif;overflow:hidden;position:relative}
+#bg{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.fl{position:absolute;bottom:-10%;opacity:.55;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg)}}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 18px;text-align:center;opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s;overflow-y:auto}
+.screen.on{opacity:1;visibility:visible}
+.tag{font-size:12px;color:var(--soft);letter-spacing:.06em;margin-bottom:10px}
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:700}
+.script{font-family:Caveat,cursive;color:var(--rose);font-weight:700}
+.card{background:var(--card);border-radius:22px;padding:28px 24px;width:min(420px,100%);box-shadow:0 18px 50px rgba(200,120,150,.25);position:relative}
+.btn{margin-top:20px;border:0;border-radius:99px;background:var(--rose);color:#fff;font:600 13px Quicksand,sans-serif;padding:12px 24px;cursor:pointer;box-shadow:0 8px 20px rgba(226,96,127,.4);transition:transform .2s}
+.btn:hover{transform:translateY(-2px) scale(1.04)}
+.btn:focus-visible,.pick:focus-visible,.nav:focus-visible,#play:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+/* envelope */
+#s1 h2{font-size:clamp(28px,7vw,38px)}
+#s1 .script{font-size:26px}
+.env{position:relative;width:240px;height:160px;margin:38px 0 10px;cursor:pointer;animation:bob 3s ease-in-out infinite;background:none;border:0}
+.env.open{animation:none}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.env .body{position:absolute;inset:0;background:#f7e3bd;border:3px solid var(--edge);border-radius:8px;z-index:3;clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)}
+.env .back{position:absolute;inset:0;background:#e8cf9f;border:3px solid var(--edge);border-radius:8px;z-index:1}
+.env .flap{position:absolute;left:0;right:0;top:0;height:82px;background:#f2d9a8;border:3px solid var(--edge);border-radius:8px 8px 0 0;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease,z-index 0s .35s;z-index:4}
+.env.open .flap{transform:rotateX(180deg);z-index:0}
+.env .heart{position:absolute;left:50%;top:44px;transform:translateX(-50%);z-index:5;font-size:22px;transition:opacity .3s}
+.env.open .heart{opacity:0}
+.env .note{position:absolute;left:14px;right:14px;top:10px;height:130px;background:var(--card);border-radius:6px;z-index:2;transition:transform .8s .5s ease}
+.env.open .note{transform:translateY(-80px)}
+.hint{font-size:13px;color:var(--soft);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+/* card */
+.avatar{width:64px;height:64px;border-radius:50%;background:#ffd6e0;display:grid;place-items:center;font-size:34px;margin:-58px auto 10px;box-shadow:0 6px 16px rgba(226,96,127,.35);border:3px solid var(--card)}
+.name{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,10vw,46px);line-height:1}
+.name span{display:inline-block;animation:wave 2.4s ease-in-out infinite}
+@keyframes wave{50%{transform:translateY(-6px)}}
+.date{font-size:13px;color:var(--soft);margin:8px 0 14px}
+.card p{font-size:14px;line-height:1.7;color:var(--soft)}
+.player{display:flex;align-items:center;gap:12px;margin-top:18px;padding:10px 14px;border-radius:14px;background:rgba(226,96,127,.1);text-align:left}
+#play{width:40px;height:40px;border-radius:50%;border:0;background:var(--rose);color:#fff;font-size:14px;cursor:pointer;flex:none}
+.bar{height:5px;border-radius:9px;background:rgba(226,96,127,.25);margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--rose)}
+.player b{font:700 13px Quicksand;display:block}
+.player small{color:var(--soft);font-size:11px}
+/* album */
+.stage{display:flex;align-items:center;gap:8px;width:min(480px,100%)}
+.nav{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:var(--card);color:var(--rose);font-size:16px;cursor:pointer;box-shadow:0 4px 12px rgba(200,120,150,.3)}
+.slide{flex:1;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;animation:pop .6s}
+@keyframes pop{from{opacity:0;transform:translateX(30px) rotate(3deg)}}
+.pic{font-size:88px;width:200px;height:200px;border-radius:14px;background:linear-gradient(135deg,#ffe3ea,#e8dcf8);display:grid;place-items:center;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);animation:bob 4s ease-in-out infinite}
+.pic img{width:100%;height:100%;object-fit:cover}
+.cap{font-family:Caveat,cursive;font-size:22px;line-height:1.15;font-weight:700}
+.dots{display:flex;gap:7px;margin-top:14px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--rose);opacity:.3;transition:.3s}
+.dots i.a{opacity:1;transform:scale(1.4)}
+/* bouquet */
+.wishes{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:420px;margin:26px 0 6px}
+.pick{border:0;background:none;font-size:52px;cursor:pointer;transform-origin:bottom;animation:sway 3s ease-in-out infinite;transition:filter .3s}
+.pick:nth-child(2n){animation-delay:-1s}.pick:nth-child(3n){animation-delay:-2s}
+@keyframes sway{50%{transform:rotate(7deg)}}
+.pick.done{filter:grayscale(.7) opacity(.5)}
+.basket{font-size:60px;margin-top:-6px}
+#modal{position:fixed;inset:0;background:rgba(74,48,56,.45);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:.4s;z-index:20}
+#modal.on{opacity:1;visibility:visible}
+#modal .card{transform:scale(.7) rotate(-4deg);transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+#modal.on .card{transform:none}
+#wtext{font-family:Caveat,cursive;font-size:24px;font-weight:700;line-height:1.3;color:var(--ink)}
+/* letter */
+.letter{text-align:left;max-height:82vh;overflow-y:auto}
+.letter h2{font-size:34px;text-align:center;margin-bottom:14px}
+.letter p{margin-bottom:12px;font-size:14.5px}
+.sign{font-family:Caveat,cursive;font-size:26px;color:var(--rose);margin-top:14px;text-align:right}
+.rv{opacity:0;transform:translateY(12px);transition:.9s}
+.on .rv{opacity:1;transform:none}
+.on .rv:nth-child(2){transition-delay:.4s}.on .rv:nth-child(3){transition-delay:1.2s}.on .rv:nth-child(4){transition-delay:2s}.on .rv:nth-child(5){transition-delay:2.8s}.on .rv:nth-child(6){transition-delay:3.6s}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:30}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.fl{display:none}}
+</style>
+</head>
+<body>
+<div id="bg" aria-hidden="true"></div>
+<canvas id="cf"></canvas>
+
+<section class="screen on" id="s1">
+  <div class="tag">♥ a birthday surprise</div>
+  <h2>a little something for you</h2>
+  <div class="script">happy birthday ♡</div>
+  <button class="env" id="env" aria-label="Open the envelope">
+    <div class="back"></div><div class="note"></div><div class="body"></div><div class="flap"></div><div class="heart">💗</div>
+  </button>
+  <div class="hint" id="hint">tap the envelope</div>
+</section>
+
+<section class="screen" id="s2">
+  <div class="card">
+    <div class="avatar">🐰</div>
+    <div class="tag">♥ only for you</div>
+    <h2 style="font-size:22px;color:var(--soft)">Happy Birthday</h2>
+    <div class="name script" id="nm"></div>
+    <div class="date" id="dt">30 September ♡</div>
+    <p>Today is yours. A whole little garden of wishes — for every laugh we've shared, every silly moment, and every reason you make the world brighter. Press play, and let me say it properly.</p>
+    <div class="player">
+      <button id="play" aria-label="Play song">▶</button>
+      <div style="flex:1"><b>A song for your day</b><small>with love</small><div class="bar"><i id="pr"></i></div></div>
+    </div>
+    <button class="btn" data-go="s3">see our album</button>
+  </div>
+</section>
+
+<section class="screen" id="s3">
+  <h2 style="font-size:34px">our little album</h2>
+  <div class="tag" style="margin:6px 0 20px">a few of my favourite moments with you ♡</div>
+  <div class="stage">
+    <button class="nav" id="pv" aria-label="Previous">←</button>
+    <div class="slide" id="sl"></div>
+    <button class="nav" id="nx" aria-label="Next">→</button>
+  </div>
+  <div class="dots" id="dots"></div>
+  <button class="btn" data-go="s4">open your wishes</button>
+</section>
+
+<section class="screen" id="s4">
+  <h2 style="font-size:32px">a tiny bouquet of birthday wishes</h2>
+  <div class="tag" style="margin-top:8px">pick each flower — there's a little wish inside ♡</div>
+  <div class="wishes" id="wl"></div>
+  <div class="basket">🧺</div>
+  <button class="btn" data-go="s5" id="toLetter" style="display:none">read my letter</button>
+</section>
+
+<section class="screen" id="s5">
+  <div class="card letter">
+    <div class="avatar" style="margin-top:-58px">🐰</div>
+    <div class="tag" style="text-align:center">♥ a letter, just for you</div>
+    <h2 class="script" id="ln"></h2>
+    <p class="rv">There's no card big enough for everything I'd like to say, so I made you a little garden — with a song, our pictures, and a few of my favourite wishes for the year ahead.</p>
+    <p class="rv">Thank you for the small and unseen things — the way you check in, the jokes only we get, the quiet patience when I'm being too much. I noticed. I still notice.</p>
+    <p class="rv">I hope today you feel celebrated. I hope you eat something delicious that you didn't have to make, and someone tells you you're loved (you are), most of all, I hope this year ahead feels — for once — exactly the way you've always made my days feel.</p>
+    <div class="sign rv">with all my love,<br>— your person ♡</div>
+    <button class="btn" data-go="s1" style="display:block;margin:18px auto 0">read it again</button>
+  </div>
+</section>
+
+<div id="modal"><div class="card"><div class="tag" id="wt">♥ a wish for you</div><div id="wtext"></div><button class="btn" id="wx">close</button></div></div>
+
+<script>
+const NAME="Starlen Angel";
+// Add your own photos: put an image URL / data URI in src for any slide.
+const ALBUM=[
+ {e:"🎂",c:"ordinary days with you have always been my favourite ones",d:"",src:""},
+ {e:"🌷",c:"thank you for showing up — for everything, every time",d:"",src:""},
+ {e:"🧸",c:"my safest place is wherever you are",d:"",src:""},
+ {e:"🌙",c:"late-night talks I never want to end",d:"",src:""}
+];
+const WISHES=[
+ ["🌸","Your laugh is one of those sounds that just makes a room feel warmer. Wishing you a year full of the kind of moments that bring it out again and again."],
+ ["🌼","You remember the small things — the worry from a Tuesday, the random text on a hard day. I hope this year feels like being seen, and heard."],
+ ["🌷","May every dream you've been quietly carrying finally find its own bright morning."],
+ ["🌻","I hope you rest without guilt, smile without reason, and always know how deeply you're loved."],
+ ["🪻","Here's to a new year of you — softer days, louder joy, and me right beside you."]
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$("#nm").innerHTML=[...NAME].map((c,i)=>`<span style="animation-delay:${i*.1}s">${c==" "?"&nbsp;":c}</span>`).join("");
+$("#ln").textContent="My "+NAME+",";
+// birthday countdown (30 Sep)
+(function(){const n=new Date(),y=n.getFullYear();let b=new Date(y,8,30);const t=new Date(y,n.getMonth(),n.getDate());
+ let d=Math.round((b-t)/864e5);if(d<-0)d=Math.round((new Date(y+1,8,30)-t)/864e5);
+ $("#dt").textContent="30 September ♡  "+(d==0?"— today is your day! 🎉":d==1?"— just 1 sleep to go":"— "+d+" days to go");})();
+// floating flowers
+const bg=$("#bg");["🌸","✿","🌼","💗","✨","🌷"].forEach((f,i)=>{for(let k=0;k<3;k++){const s=document.createElement("span");s.className="fl";s.textContent=f;
+ s.style.cssText=`left:${Math.random()*95}%;font-size:${14+Math.random()*22}px;animation-duration:${14+Math.random()*16}s;animation-delay:${-Math.random()*25}s`;bg.appendChild(s)}});
+// screens
+function go(id){$$(".screen").forEach(s=>s.classList.toggle("on",s.id==id));if(id=="s1"){$("#env").classList.remove("open");$("#hint").style.opacity=1}}
+$$("[data-go]").forEach(b=>b.onclick=()=>{go(b.dataset.go);if(b.dataset.go=="s5")confetti(90)});
+// confetti
+const cv=$("#cf"),cx=cv.getContext("2d");let P=[];
+function sz(){cv.width=innerWidth;cv.height=innerHeight}sz();addEventListener("resize",sz);
+function confetti(n){for(let i=0;i<n;i++)P.push({x:innerWidth/2,y:innerHeight/2,vx:(Math.random()-.5)*14,vy:-Math.random()*13-3,r:Math.random()*6+3,c:["#e2607f","#ffb3c6","#f7d47a","#b9a7f0","#fff"][i%5],a:1});if(P.length==n)loop()}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.3;p.a-=.008;cx.globalAlpha=Math.max(p.a,0);cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()});P=P.filter(p=>p.a>0);if(P.length)requestAnimationFrame(loop)}
+// envelope
+$("#env").onclick=()=>{const e=$("#env");if(e.classList.contains("open"))return;e.classList.add("open");$("#hint").style.opacity=0;confetti(70);setTimeout(()=>go("s2"),2200)};
+// music box (synthesised)
+let ac,playing=false,step=0,timer,t0=0;
+const MEL=[659,784,880,784,659,587,523,587,659,784,659,523,587,659,587,523,494,523,587,659,784,880,784,659,880,988,1047,988,880,784,659,523];
+function note(f){const o=ac.createOscillator(),g=ac.createGain();o.type="sine";o.frequency.value=f;o.connect(g);g.connect(ac.destination);const t=ac.currentTime;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.01);g.gain.exponentialRampToValueAtTime(.001,t+1.4);o.start(t);o.stop(t+1.5);
+ const o2=ac.createOscillator(),g2=ac.createGain();o2.type="triangle";o2.frequency.value=f*2;o2.connect(g2);g2.connect(ac.destination);g2.gain.setValueAtTime(.05,t);g2.gain.exponentialRampToValueAtTime(.001,t+.5);o2.start(t);o2.stop(t+.6)}
+$("#play").onclick=()=>{ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+ if(playing){clearInterval(timer);playing=false;$("#play").textContent="▶";return}
+ playing=true;$("#play").textContent="❚❚";
+ timer=setInterval(()=>{note(MEL[step%MEL.length]);step++;$("#pr").style.width=((step%MEL.length)/MEL.length*100)+"%"},420)};
+// album
+let ai=0;const dots=$("#dots");dots.innerHTML=ALBUM.map(()=>"<i></i>").join("");
+function show(){const a=ALBUM[ai];const sl=$("#sl");sl.style.animation="none";sl.offsetWidth;sl.style.animation="";
+ sl.innerHTML=`<div class="pic">${a.src?`<img src="${a.src}" alt="">`:a.e}</div><div class="cap">${a.c}</div>`;
+ [...dots.children].forEach((d,i)=>d.classList.toggle("a",i==ai))}
+$("#nx").onclick=()=>{ai=(ai+1)%ALBUM.length;show()};$("#pv").onclick=()=>{ai=(ai-1+ALBUM.length)%ALBUM.length;show()};show();
+// wishes
+let seen=new Set();
+$("#wl").innerHTML=WISHES.map((w,i)=>`<button class="pick" data-i="${i}" aria-label="Open wish ${i+1}">${w[0]}</button>`).join("");
+$$(".pick").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;$("#wtext").textContent=WISHES[i][1];$("#modal").classList.add("on");b.classList.add("done");seen.add(i);confetti(30);
+ if(seen.size==WISHES.length)$("#toLetter").style.display="inline-block"});
+$("#wx").onclick=()=>$("#modal").classList.remove("on");
+$("#modal").onclick=e=>{if(e.target.id=="modal")e.target.classList.remove("on")};
+</script>
+</body>
+</html>
